@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ollarma"
+version = "0.3.0"
+description = "Repeatable local LLM benchmark harness for Biobitworks workloads"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "Byron"}]
+keywords = ["llm", "benchmark", "ollama", "apple-silicon", "local-ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+dependencies = [
+    "ollama>=0.6.1",
+    "pydantic>=2.12",
+    "typer>=0.12",
+    "rich>=13.7",
+    "orjson>=3.10",
+    "numpy>=2.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+# NOTE: the Antigence integration is an optional, separately-installed private
+# package (not on PyPI), so it is intentionally NOT a hard dependency here — that
+# would break `pip install ollarma[fleet]` / `[all]` for public users. Install
+# Antigence separately to enable the fleet/escalation integration.
+fleet = ["python-arango>=8.0"]
+autopilot = ["papermill>=2.6"]
+mcp = ["mcp>=1.27.0"]
+http = ["starlette>=0.37", "uvicorn>=0.30"]
+all = ["ollarma[mcp,http,fleet,autopilot,dev]"]
+
+[project.scripts]
+bench = "ollarma.cli:app"
+ollarma = "ollarma.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/biobitworks/ollarma"
+Repository = "https://github.com/biobitworks/ollarma"
+Issues = "https://github.com/biobitworks/ollarma/issues"
+
+[project.entry-points."ollarma.adapters"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["ollarma*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Live tests require a running Ollama instance and contend for the GPU, so they
+# are excluded by default (matches every live-test docstring's "skipped by
+# default for offline CI" contract). Run them explicitly with: pytest -m live
+addopts = "-m 'not live'"
+markers = [
+    "live: mark test as requiring a live Ollama instance (skipped by default)",
+]

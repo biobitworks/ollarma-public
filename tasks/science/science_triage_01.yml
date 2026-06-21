@@ -1,0 +1,13 @@
+# Science suite — claim validation / triage task
+id: science_triage_01
+suite: science
+num_ctx: 4096
+expected: null
+prompt: |
+  You are a research assistant evaluating a scientific claim. Respond with ONLY a JSON object
+  containing these fields: {"verdict": "SUPPORT|REFUTE|NEUTRAL", "confidence": 0.0-1.0, "reasoning": "one sentence"}.
+
+  Claim: Prion proteins propagate misfolding through direct conformational templating, not
+  through de novo synthesis of aberrant protein isoforms.
+
+  Respond only with the JSON object, no preamble.

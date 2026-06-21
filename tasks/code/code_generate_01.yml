@@ -1,0 +1,14 @@
+# Code suite — Python function generation task
+id: code_generate_01
+suite: code
+num_ctx: 4096
+expected: null
+prompt: |
+  Write a Python function named `flatten` that takes a nested list of arbitrary depth and
+  returns a flat list. The function must handle empty lists and non-list elements.
+  Respond with ONLY the Python code, no explanation, no markdown fencing.
+
+  Example:
+    flatten([1, [2, [3, 4]], 5]) -> [1, 2, 3, 4, 5]
+    flatten([]) -> []
+    flatten([1, 2, 3]) -> [1, 2, 3]

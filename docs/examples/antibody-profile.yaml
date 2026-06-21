@@ -1,0 +1,46 @@
+project_name: deltaprot
+project_root: <repo>
+antibodies:
+  - prompt_injection
+  - methodology
+antibody_profile:
+  owner_project: deltaprot
+  version: 1
+  default_antibodies:
+    - deltaprot_methodology
+    - deltaprot_bad_claim_patterns
+  antigen_banks:
+    - key: deltaprot_bad_claim_patterns
+      digest: sha256:example-bank
+      embedding_model: nomic-embed-text
+      threshold: 0.7
+      calibration_status: open
+  exports:
+    - key: deltaprot_methodology
+      digest: sha256:example-methodology
+      allowed_uses: [chat, workflow]
+      claim_ceiling: advisory
+  imports:
+    - key: citation
+      source_project: Antigence
+      required_digest: sha256:antigence-citation-example
+      allowed_uses: [chat]
+  review_modes:
+    chat: [core, project_owned]
+    workflow: [core, project_owned, borrowed_shared]
+  model_policy:
+    - role: recall_sensor
+      model: qwen2.5:1.5b
+      residency: pinned
+      strict_output: none
+      max_parallel_group: tiny_cell_fanout
+    - role: structured_cell_type
+      model: qwen3.5:2b
+      residency: pinned
+      strict_output: json_mode
+      max_parallel_group: tiny_cell_fanout
+    - role: router
+      model: granite4.1:8b
+      residency: warm_if_room
+      strict_output: json_grammar
+      max_parallel_group: sequential_only

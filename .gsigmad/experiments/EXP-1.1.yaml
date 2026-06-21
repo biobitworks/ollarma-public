@@ -1,0 +1,41 @@
+exp_id: EXP-1.1
+record_schema_version: 3
+title: "ollarma v4.5 first governed dogfood \u2014 local-first restart-safe execution"
+classification: EXPLORATORY
+created_at: '2026-04-19T20:58:47.219017+00:00'
+author: ''
+hypothesis: &id001
+  h0: 'The v4.5 substrate does not deliver restart-safe local-first governed execution
+    on demo/hackathon/demo_project: guards fail to fire OR frontier lapse occurs OR
+    handoff artifact absent'
+  h1: 'TODO: state alternative hypothesis'
+  test: 'TODO: specify statistical test'
+  alpha: 0.05
+  mesi: null
+power_analysis:
+  tier: TODO
+  test_type: TODO
+  required_n: null
+  effect_size_mesi: null
+  alpha: 0.05
+  achieved_power: null
+gates:
+  data_contract: PENDING
+claims: []
+replication_artifacts: []
+prompt_id: PROMPT-1.1
+task_id: TASK-1.1
+coordinate_version: v1.1.1.1
+status: planned
+prompt_artifact:
+  kind: experiment_registration
+  hash_standard: RFC8785
+  hash_algorithm: sha256
+  hash: d193aced4e93681667ff256fd8408219a68b5a6e57b3a6d257a70fb48b06d26f
+  payload:
+    command: register
+    classification: EXPLORATORY
+    title: "ollarma v4.5 first governed dogfood \u2014 local-first restart-safe execution"
+    hypothesis: *id001
+    prompt_id: PROMPT-1.1
+    task_id: TASK-1.1

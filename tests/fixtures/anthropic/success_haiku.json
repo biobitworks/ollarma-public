@@ -1,0 +1,15 @@
+{
+  "id": "msg_01ABCDEF123456",
+  "type": "message",
+  "role": "assistant",
+  "model": "claude-haiku-4-5-latest",
+  "content": [
+    {"type": "text", "text": "Hello from mocked Anthropic response."}
+  ],
+  "stop_reason": "end_turn",
+  "stop_sequence": null,
+  "usage": {
+    "input_tokens": 12,
+    "output_tokens": 8
+  }
+}

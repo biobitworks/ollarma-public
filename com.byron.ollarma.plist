@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.byron.ollarma</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string><repo>/.venv/bin/ollarma</string>
+    <string>serve</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string><repo></string>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <true/>
+
+  <!-- v4.5 Phase 51 hardening: prevent crash-loop CPU burn (default is 10s
+       on macOS but not always honored for sub-10s crashes; making it
+       explicit gives deterministic behavior). -->
+  <key>ThrottleInterval</key>
+  <integer>10</integer>
+
+  <!-- Operator-driven daemon, not a passive background task — keeps macOS
+       from aggressively throttling the service. -->
+  <key>ProcessType</key>
+  <string>Interactive</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string><repo>/.venv/bin:<local-path>:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string><local-path></string>
+
+  <key>StandardErrorPath</key>
+  <string><local-path></string>
+</dict>
+</plist>

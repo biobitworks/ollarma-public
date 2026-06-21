@@ -1,0 +1,14 @@
+schema_version: 2
+project_name: ollarma
+created_at: '2026-04-17T23:55:13.943586+00:00'
+connector_type: flat_file
+governance:
+  canon_path: CANON.md
+  experiment_dir: .gsigmad/experiments
+  ledger_dir: .gsigmad/ledger
+  coordination_file: .gsigmad/coordination.json
+  context_dir: .gsigmad/context
+immutability:
+  prompt_hash_standard: RFC8785
+  hash_algorithm: sha256
+  archive_mode: embedded_ledger

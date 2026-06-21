@@ -1,0 +1,199 @@
+{
+  "project_name": "Conductor",
+  "project_root": "<REPO_ROOT>/...",
+  "inventory": {
+    "project_name": "conductor",
+    "project_root": "<REPO_ROOT>/...",
+    "assets": [
+      {
+        "path": "<REPO_ROOT>/...",
+        "asset_type": "script",
+        "has_entrypoint": true,
+        "code_cell_count": 0
+      },
+      {
+        "path": "<REPO_ROOT>/...",
+        "asset_type": "script",
+        "has_entrypoint": true,
+        "code_cell_count": 0
+      },
+      {
+        "path": "<REPO_ROOT>/...",
+        "asset_type": "script",
+        "has_entrypoint": true,
+        "code_cell_count": 0
+      },
+      {
+        "path": "<REPO_ROOT>/...",
+        "asset_type": "script",
+        "has_entrypoint": true,
+        "code_cell_count": 0
+      },
+      {
+        "path": "<REPO_ROOT>/...",
+        "asset_type": "script",
+        "has_entrypoint": true,
+        "code_cell_count": 0
+      },
+      {
+        "path": "<REPO_ROOT>/...",
+        "asset_type": "script",
+        "has_entrypoint": true,
+        "code_cell_count": 0
+      },
+      {
+        "path": "<REPO_ROOT>/...",
+        "asset_type": "script",
+        "has_entrypoint": true,
+        "code_cell_count": 0
+      },
+      {
+        "path": "<REPO_ROOT>/...",
+        "asset_type": "pytest_suite",
+        "has_entrypoint": true,
+        "code_cell_count": 0
+      }
+    ],
+    "counts": {
+      "script": 7,
+      "pytest_suite": 1
+    }
+  },
+  "tier_map": {
+    "science": {
+      "tier": "science",
+      "model": "test-model",
+      "model_size_b": null,
+      "quality_mean": null,
+      "degraded_confidence": true
+    },
+    "data-analysis": {
+      "tier": "data-analysis",
+      "model": "test-model",
+      "model_size_b": null,
+      "quality_mean": null,
+      "degraded_confidence": true
+    }
+  },
+  "results": [
+    {
+      "asset_path": "<REPO_ROOT>/...",
+      "asset_type": "script",
+      "task_tier": "science",
+      "model_used": "qwen3:1.7b",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "SWAP_DEGRADED: swap in use (1534.2 MB)",
+      "duration_s": 0.0,
+      "tokens_consumed": 0,
+      "escalated": false,
+      "escalation_needed": true,
+      "degraded_confidence": true
+    },
+    {
+      "asset_path": "<REPO_ROOT>/...",
+      "asset_type": "script",
+      "task_tier": "science",
+      "model_used": "qwen3:1.7b",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "SWAP_DEGRADED: swap in use (1534.2 MB)",
+      "duration_s": 0.0,
+      "tokens_consumed": 0,
+      "escalated": false,
+      "escalation_needed": true,
+      "degraded_confidence": true
+    },
+    {
+      "asset_path": "<REPO_ROOT>/...",
+      "asset_type": "script",
+      "task_tier": "data-analysis",
+      "model_used": "qwen3:1.7b",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "SWAP_DEGRADED: swap in use (1534.2 MB)",
+      "duration_s": 0.0,
+      "tokens_consumed": 0,
+      "escalated": false,
+      "escalation_needed": true,
+      "degraded_confidence": true
+    },
+    {
+      "asset_path": "<REPO_ROOT>/...",
+      "asset_type": "script",
+      "task_tier": "code",
+      "model_used": "qwen3:1.7b",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "SWAP_DEGRADED: swap in use (1534.2 MB)",
+      "duration_s": 0.0,
+      "tokens_consumed": 0,
+      "escalated": false,
+      "escalation_needed": true,
+      "degraded_confidence": false
+    },
+    {
+      "asset_path": "<REPO_ROOT>/...",
+      "asset_type": "script",
+      "task_tier": "code",
+      "model_used": "qwen3:1.7b",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "SWAP_DEGRADED: swap in use (1534.2 MB)",
+      "duration_s": 0.0,
+      "tokens_consumed": 0,
+      "escalated": false,
+      "escalation_needed": true,
+      "degraded_confidence": false
+    },
+    {
+      "asset_path": "<REPO_ROOT>/...",
+      "asset_type": "script",
+      "task_tier": "science",
+      "model_used": "qwen3:1.7b",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "SWAP_DEGRADED: swap in use (1534.2 MB)",
+      "duration_s": 0.0,
+      "tokens_consumed": 0,
+      "escalated": false,
+      "escalation_needed": true,
+      "degraded_confidence": true
+    },
+    {
+      "asset_path": "<REPO_ROOT>/...",
+      "asset_type": "script",
+      "task_tier": "code",
+      "model_used": "qwen3:1.7b",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "SWAP_DEGRADED: swap in use (1534.2 MB)",
+      "duration_s": 0.0,
+      "tokens_consumed": 0,
+      "escalated": false,
+      "escalation_needed": true,
+      "degraded_confidence": false
+    },
+    {
+      "asset_path": "<REPO_ROOT>/...",
+      "asset_type": "pytest_suite",
+      "task_tier": "test-suite",
+      "model_used": "qwen3:1.7b",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "SWAP_DEGRADED: swap in use (1534.2 MB)",
+      "duration_s": 0.0,
+      "tokens_consumed": 0,
+      "escalated": false,
+      "escalation_needed": true,
+      "degraded_confidence": false
+    }
+  ],
+  "total_assets": 8,
+  "passed": 0,
+  "failed": 8,
+  "escalation_needed": 8,
+  "tokens_consumed_local": 0,
+  "run_executed": true,
+  "run_timestamp": "2026-04-19T00:00:00Z"
+}

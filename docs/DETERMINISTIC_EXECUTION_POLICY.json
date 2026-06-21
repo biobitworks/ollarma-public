@@ -1,0 +1,179 @@
+{
+  "policy_version": "2026-04-10",
+  "policy_name": "deterministic_execution_boundary",
+  "helper_surfaces": [
+    {
+      "surface": "cli.projects",
+      "purpose": "discover registered sibling repositories"
+    },
+    {
+      "surface": "http.chat",
+      "purpose": "generic single-turn local model helper without grounding guarantees"
+    },
+    {
+      "surface": "http.health",
+      "purpose": "runtime liveness plus deterministic helper-readiness summary and recovery commands"
+    },
+    {
+      "surface": "http.route",
+      "purpose": "retrieval-first project-aware read-only helper with lane receipts"
+    },
+    {
+      "surface": "mcp.route_prompt",
+      "purpose": "retrieval-first project-aware read-only helper with lane receipts"
+    },
+    {
+      "surface": "route_receipt",
+      "purpose": "machine-readable lane, reason, KB status, evidence count, and next action for routed helper calls"
+    },
+    {
+      "surface": "cli.chat_project",
+      "purpose": "interactive project-aware helper with local tools"
+    },
+    {
+      "surface": "http.dashboard",
+      "purpose": "interactive local operator dashboard for bounded helper and execution lanes"
+    },
+    {
+      "surface": "http.kb_status",
+      "purpose": "typed read-only KB status lookup"
+    },
+    {
+      "surface": "http.kb_search",
+      "purpose": "typed read-only KB search"
+    },
+    {
+      "surface": "http.dashboard_overview",
+      "purpose": "typed JSON overview for links or exported reads"
+    },
+    {
+      "surface": "http.dashboard_workflows",
+      "purpose": "project-scoped manifest discovery for the dashboard execution panel"
+    },
+    {
+      "surface": "http.dashboard_run_detail",
+      "purpose": "typed JSON run drill-down for links or exported reads"
+    }
+  ],
+  "deterministic_execution_surfaces": [
+    {
+      "surface": "cli.workflow",
+      "task_classes": [
+        "validated-script",
+        "validated-notebook",
+        "validated-pipeline-step",
+        "validated-pytest-suite"
+      ]
+    },
+    {
+      "surface": "cli.autopilot_run",
+      "asset_types": [
+        "script",
+        "notebook",
+        "pytest_suite",
+        "snakefile"
+      ]
+    },
+    {
+      "surface": "http.workflow",
+      "task_classes": [
+        "validated-script",
+        "validated-notebook",
+        "validated-pipeline-step",
+        "validated-pytest-suite"
+      ]
+    },
+    {
+      "surface": "http.autopilot",
+      "asset_types": [
+        "script",
+        "notebook",
+        "pytest_suite",
+        "snakefile"
+      ]
+    }
+  ],
+  "execution_timeouts_seconds": {
+    "script_default": 120,
+    "notebook_default": 300,
+    "pytest_default": 180,
+    "snakefile_default": 600
+  },
+  "safe_for": [
+    "finding files in registered projects",
+    "explaining scripts and notebooks",
+    "recommending which validated local step should run next",
+    "running validated scripts under manifest control",
+    "running validated notebooks under manifest control",
+    "running pytest suites under bounded local execution",
+    "running snakemake dry-run pipeline steps under bounded local execution"
+  ],
+  "unsafe_for": [
+    "broad repo mutation through service-mode routing",
+    "commit push backup mirror workflows",
+    "multi-file refactors",
+    "high-stakes project characterization without verification",
+    "governance-significant decisions without frontier fallback"
+  ],
+  "fallback_policy": {
+    "chat_selection_missing_or_stale": "generic_chat_may_use_local_fallback_model",
+    "route_generic_or_incorrect": "escalate_to_frontier",
+    "route_insufficient_grounding": "return_receipt_and_escalate",
+    "route_execution_request": "handoff_to_workflow_or_autopilot",
+    "kb_stale": "rebuild_or_escalate",
+    "timeout": "escalate_to_frontier",
+    "dependency_missing": "escalate_to_frontier",
+    "high_stakes_judgment": "do_not_use_ollarma_first"
+  },
+  "route_policy": {
+    "ordering": [
+      "classify_query",
+      "load_kb_status",
+      "deterministic_retrieval",
+      "choose_lane",
+      "emit_route_receipt"
+    ],
+    "lanes": [
+      "kb_direct",
+      "grounded_local_synthesis",
+      "orchestrator_handoff",
+      "frontier_or_human"
+    ],
+    "reason_codes": [
+      "KB_DIRECT_ANSWER",
+      "KB_STATUS_ANSWER",
+      "GROUNDED_LOCAL_SYNTHESIS",
+      "EXECUTION_LANE_REQUIRED",
+      "INSUFFICIENT_GROUNDED_EVIDENCE",
+      "KB_SOURCES_UNDECLARED",
+      "KB_SOURCE_MISSING",
+      "KB_NOT_BUILT",
+      "KB_STALE"
+    ]
+  },
+  "dashboard_policy": {
+    "owner": "ollarma",
+    "read_only": false,
+    "interactive": true,
+    "query_modes": [
+      "general_chat",
+      "project_route",
+      "operator_kb"
+    ],
+    "execution_modes": [
+      "workflow",
+      "autopilot"
+    ],
+    "no_fallback_from_route_to_chat": true,
+    "persist_raw_prompts": false,
+    "review_gate": "review_when_dashboard_available",
+    "portfolio_dashboard_dependency": false,
+    "integration_contract": "links_exports_only"
+  },
+  "live_trial_2026_04_10": {
+    "adapter_discovery": "pass",
+    "http_route_timeout_gate": "pass",
+    "semantic_correctness": "fail",
+    "decision": "use_ollarma_first_only_for_bounded_low_level_tasks_with_human_or_frontier_fallback"
+  }
+}

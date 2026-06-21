@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "packet_id": "DP-20260531T210716Z-exp-ollarma-swarm-002",
+  "receipt_path": ".gsigmad/decision_packets/DP-20260531T210716Z-exp-ollarma-swarm-002.json",
+  "canonical_receipt_template": ".gsigmad/decision_packets/{packet_id}.json",
+  "verdict": "READY_TO_ALLOCATE",
+  "created_at": "2026-05-31T21:07:16Z",
+  "updated_at": "2026-05-31T21:07:16Z",
+  "owner_repo": "<repo>",
+  "decision": {
+    "title": "EXP-OLLARMA-SWARM-002 inert-control calibration preregistration",
+    "decision_type": "FOLLOW_UP",
+    "hypothesis_space": "The PROMPT-OLLARMA-SWARM-001 T9b inert-control round0-to-round1 JSD of 0.0412 is either a reproducible cold-start/sampling artifact across inert prompt forms or evidence that the strict inert-control threshold/measurement protocol requires remediation before Phase 70 closeout.",
+    "intended_classification": "CONFIRMATORY",
+    "rt_lineage": {
+      "applies": true,
+      "source_prompt": "PROMPT-OLLARMA-SWARM-001",
+      "successor_label": "T9b-PARTIAL-inert-control-calibration"
+    },
+    "design_summary": "Run five inert prompt forms under the same Phase 70 local-GPU swarm settings (qwen2.5-coder:7b, N=50, M=5, seed=42, temperature=0.0). Measure per-prompt round-over-round JSD, max JSD, and cold-start round0-to-round1 versus later-round steady-state behavior. Allocation is limited to PROMPT creation for EXP-OLLARMA-SWARM-002; execution remains a later SWE action."
+  },
+  "cluster_mode": {
+    "enabled": false,
+    "cluster_id": null,
+    "shared_hypothesis_space": null,
+    "member_candidates": [],
+    "shared_entities": []
+  },
+  "blockers": [],
+  "artifact_maturity": [
+    {
+      "entity_id": "runs/swarm_acceptance_20260531T172933Z/acceptance_verdict.json",
+      "entity_type": "acceptance_verdict",
+      "maturity_tier": "HASHED",
+      "required_tier": "HASHED",
+      "promotion_path": "sha256:a2b50473ff58982aadc50dc8f908c6fcd490601f5a0337aa1496e31a7c405825",
+      "evidence": "Committed T9b acceptance verdict records PARTIAL outcome and inert-control max round-over-round JSD 0.04120259398127841.",
+      "downgrade_requires_operator": true
+    },
+    {
+      "entity_id": "experiments/EXP_OLLARMA_SWARM_001_predictive_persona_swarm.md",
+      "entity_type": "experiment_note",
+      "maturity_tier": "HASHED",
+      "required_tier": "HASHED",
+      "promotion_path": "sha256:a24d7316d1c830f83558f1db36b082df10aceb66011e447c18ba6febafdf3dc2",
+      "evidence": "EXP-OLLARMA-SWARM-001 note records T9b RUN-COMPLETE, PARTIAL verdict, and closeout blocked status.",
+      "downgrade_requires_operator": true
+    },
+    {
+      "entity_id": ".planning/quick/260531-phase70-inert-calibration/REMEDIATION_PLAN.md",
+      "entity_type": "remediation_plan",
+      "maturity_tier": "HASHED",
+      "required_tier": "HASHED",
+      "promotion_path": "sha256:4ac0c24aa709bcf358453e62eca70152bb55f9fa2943cc90b6e402ed8d6c1a61",
+      "evidence": "Remediation plan defines EXP-OLLARMA-SWARM-002 goal, method, measures, and success criteria.",
+      "downgrade_requires_operator": true
+    }
+  ],
+  "drift_policy": [
+    {
+      "field": "runs/swarm_acceptance_20260531T172933Z/acceptance_verdict.json",
+      "trigger": "HASH_CHANGE",
+      "revalidation_gate": "decision_scope",
+      "action": "RECHECK_PACKET"
+    },
+    {
+      "field": ".planning/quick/260531-phase70-inert-calibration/REMEDIATION_PLAN.md",
+      "trigger": "HASH_CHANGE",
+      "revalidation_gate": "design",
+      "action": "RECHECK_PACKET"
+    },
+    {
+      "field": "PROMPT_EXP_MAP.md",
+      "trigger": "CLASSIFICATION_CHANGE",
+      "revalidation_gate": "namespace",
+      "action": "RECHECK_PACKET"
+    }
+  ],
+  "claim_ceiling": {
+    "max_claim_tier": "HYPOTHESIS_STAGE_1",
+    "pass_language": "EXP-002 may support a bounded calibration claim about whether the T9b inert-control wobble reproduces across inert prompt forms under the same local-GPU swarm settings.",
+    "fail_language": "EXP-002 may show that the inert-control wobble is not reproducible under the tested inert prompt variants; it does not by itself validate Phase 70 closeout.",
+    "pass_does_not_prove_language": "A PASS does not prove the predictive persona swarm is generally valid, does not close T11/T12, and does not authorize threshold changes without EXP-003/004 or PI disposition.",
+    "rt_1b_stage_limit": "HYPOTHESIS_STAGE_1"
+  },
+  "outcome_routing": {
+    "pass_route": "gsigmad-claim-ceiling",
+    "fail_route": "gsigmad-negative-results",
+    "ambiguous_route": "decision-readiness-revalidation"
+  },
+  "prov:wasGeneratedBy": "gsigmad-decision-packet",
+  "prov:wasAttributedTo": "codex",
+  "prov:used": [
+    "runs/swarm_acceptance_20260531T172933Z/acceptance_verdict.json",
+    "experiments/EXP_OLLARMA_SWARM_001_predictive_persona_swarm.md",
+    ".planning/quick/260531-phase70-inert-calibration/REMEDIATION_PLAN.md",
+    "PROMPT_EXP_MAP.md"
+  ],
+  "prov:generatedAtTime": "2026-05-31T21:07:16Z"
+}

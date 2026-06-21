@@ -1,0 +1,21 @@
+{
+  "id": "chatcmpl-ABCDEF123456",
+  "object": "chat.completion",
+  "created": 1713549600,
+  "model": "gpt-4o",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Hello from mocked OpenAI response."
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 14,
+    "completion_tokens": 9,
+    "total_tokens": 23
+  }
+}

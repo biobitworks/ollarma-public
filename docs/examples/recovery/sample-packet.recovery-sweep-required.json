@@ -1,0 +1,58 @@
+{
+  "ahead_commits": [
+    {
+      "branch": "claude/aurora",
+      "sha": "1111111111111111111111111111111111111111",
+      "subject": "wip: paused"
+    }
+  ],
+  "artifacts_at_risk": [
+    "<REPO_ROOT>/.claude/worktrees/aurora:scratch.py"
+  ],
+  "blocker_code": "RECOVERY_SWEEP_REQUIRED",
+  "modified_files": [],
+  "next_fix_commands": [
+    "# Stranded worktree: <REPO_ROOT>/.claude/worktrees/aurora",
+    "git -C <REPO_ROOT>/.claude/worktrees/aurora status",
+    "git -C <REPO_ROOT>/.claude/worktrees/aurora diff",
+    "git log --oneline main..claude/aurora"
+  ],
+  "notes": [
+    "1 stranded worktree(s) AND 1 ahead-commit(s) -- broad sweep required"
+  ],
+  "probable_reasoning_loss": true,
+  "project_id": "example-project",
+  "repo_root": "<REPO_ROOT>",
+  "resume_present": false,
+  "schema_version": 1,
+  "session_log_present": false,
+  "source": "operator-smoke",
+  "state": "recovery_sweep_required",
+  "timestamp": "2026-04-18T00:00:00+00:00",
+  "unknown_loss_risk": true,
+  "untracked_files": [
+    "<REPO_ROOT>/.claude/worktrees/aurora:scratch.py"
+  ],
+  "worktrees": [
+    {
+      "branch": "main",
+      "head": "0000000000000000000000000000000000000000",
+      "is_sidecar": false,
+      "modified": [],
+      "path": "<REPO_ROOT>",
+      "untracked": [
+        ".claude/"
+      ]
+    },
+    {
+      "branch": "claude/aurora",
+      "head": "0000000000000000000000000000000000000000",
+      "is_sidecar": true,
+      "modified": [],
+      "path": "<REPO_ROOT>/.claude/worktrees/aurora",
+      "untracked": [
+        "scratch.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "artifact_ref": "artifacts/ollarma/demo/handoff.json",
+  "bounded_execution": true,
+  "deferred": [
+    "live sibling-repo workflow execution",
+    "broad multi-project orchestration",
+    "public packaging"
+  ],
+  "demo_id": "seedgraph-handoff-demo",
+  "execution_substrate": "ollarma-autopilot",
+  "handoff_targets": [
+    "seedgraph",
+    "watchtower",
+    "gettingsciencedone"
+  ],
+  "happy_path": [
+    "build_demo_kb",
+    "confirm_workflow_catalog",
+    "run_autopilot_demo",
+    "handoff_to_downstream_operator"
+  ],
+  "mode": "local-first",
+  "narrative_ref": "artifacts/ollarma/demo/judge_narrative.md",
+  "offline_fallback": "rerun_autopilot_and_show_existing_handoff_artifact",
+  "restart_safe": true,
+  "status": "ready_for_handoff",
+  "upstream_risk": "seedgraph_science_ops_flow_may_be_too_risky_for_event_timing"
+}

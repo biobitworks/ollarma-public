@@ -1,0 +1,1 @@
+{"name": "go_basic", "kind": "ontology", "path": "data/go-basic.obo", "sha256": "sha256:923645000afcb1df0e72e252b64950b1c2bcc98c9393fec8c1dd1a0f7c9d4d77", "size_bytes": 32212518, "source_url": "http://purl.obolibrary.org/obo/go/go-basic.obo", "evidence_class": "reference", "claim_ceiling": "MEASURED", "note": "one-time zone-2 bootstrap; steady-state offline"}

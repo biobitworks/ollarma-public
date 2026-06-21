@@ -1,0 +1,68 @@
+{
+  "chains": {
+    "EXP-1.1": {
+      "current_stage": "EXP",
+      "exp_id": "EXP-1.1",
+      "history": [
+        {
+          "artifact_id": "TASK-1.1",
+          "metadata": {},
+          "stage": "TASK",
+          "timestamp": "2026-04-19T20:58:47.221456+00:00"
+        },
+        {
+          "artifact_id": "PROMPT-1.1",
+          "metadata": {},
+          "stage": "PROMPT",
+          "timestamp": "2026-04-19T20:58:47.221751+00:00"
+        },
+        {
+          "artifact_id": "EXP-1.1",
+          "metadata": {},
+          "stage": "EXP",
+          "timestamp": "2026-04-19T20:58:47.221978+00:00"
+        }
+      ],
+      "lab_notebook_entry": null,
+      "prompt_id": "PROMPT-1.1",
+      "rem_id": null,
+      "results_id": null,
+      "rt_id": null,
+      "task_id": "TASK-1.1",
+      "terminal_state": null
+    },
+    "EXP-1.2": {
+      "current_stage": "EXP",
+      "exp_id": "EXP-1.2",
+      "history": [
+        {
+          "artifact_id": "TASK-1.2",
+          "metadata": {},
+          "stage": "TASK",
+          "timestamp": "2026-04-20T04:12:44.485963+00:00"
+        },
+        {
+          "artifact_id": "PROMPT-1.2",
+          "metadata": {},
+          "stage": "PROMPT",
+          "timestamp": "2026-04-20T04:12:44.486476+00:00"
+        },
+        {
+          "artifact_id": "EXP-1.2",
+          "metadata": {},
+          "stage": "EXP",
+          "timestamp": "2026-04-20T04:12:44.486722+00:00"
+        }
+      ],
+      "lab_notebook_entry": null,
+      "prompt_id": "PROMPT-1.2",
+      "rem_id": null,
+      "results_id": null,
+      "rt_id": null,
+      "task_id": "TASK-1.2",
+      "terminal_state": null
+    }
+  },
+  "schema_version": 1,
+  "updated_at": "2026-04-20T04:12:44.486740+00:00"
+}

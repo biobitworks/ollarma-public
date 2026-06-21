@@ -1,0 +1,18 @@
+# Swarm suite — routing / orchestration task
+id: swarm_route_01
+suite: swarm
+num_ctx: 8192
+expected: null
+prompt: |
+  You are a routing agent. Given a task description, select the most appropriate specialist
+  model from the available roster. Respond with ONLY a JSON object:
+  {"selected_model": "<model_name>", "confidence": 0.0-1.0, "reason": "one sentence"}.
+
+  Available models:
+  - qwen3:8b: best for complex science reasoning and multi-step analysis
+  - qwen3-coder:7b: best for code generation and debugging
+  - phi4-mini: best for fast structured output and classification
+
+  Task: "Parse the attached Python traceback and identify the root exception class."
+
+  Respond only with the JSON object, no preamble.

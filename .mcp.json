@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "ollarma": {
+      "command": "ollarma",
+      "args": ["mcp"],
+      "env": {}
+    }
+  }
+}

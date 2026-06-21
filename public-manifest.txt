@@ -1,0 +1,57 @@
+# public-manifest.txt — allowlist for the public extraction tree (default-deny).
+# Consumed by scripts/build_public_tree.py. One path or glob per line.
+# Lines starting with '#' are comments; blank lines ignored.
+# Only TRACKED files matching these globs are copied into dist/public/, then
+# scrubbed, then checked against the denylist (see build_public_tree.py).
+#
+# PRINCIPLE: ship the portfolio-agnostic substrate + bench harness + generic
+# surfaces. Do NOT ship real project adapters, portfolio governance wiring,
+# personal config, or machine-specific paths. See docs/public-release/PUBLIC_RELEASE_PLAN.md.
+
+# --- core substrate (the engine) ---
+src/ollarma/*.py
+src/ollarma/swarm/*.py
+
+# --- entrypoints / packaging ---
+run_benchmark.py
+pyproject.toml
+LICENSE
+models.yml
+
+# --- benchmark tasks (generic workloads) ---
+tasks/**
+
+# --- client/bench tooling (paths scrubbed at build) ---
+clients/gpu_vs_cpu_bench.py
+clients/model_matrix_probe.py
+clients/stress_test.py
+clients/ollarma_client.py
+
+# --- swarm + bench scripts (paths scrubbed at build) ---
+scripts/swarm_acceptance.py
+scripts/swarm_calibration.py
+scripts/swarm_proof_run.py
+
+# --- generic substrate docs (portfolio-specific evidence docs are dropped;
+#     private names in the remaining docs are genericized by the scrubber) ---
+README.md
+docs/HOWTO.md
+docs/DETERMINISTIC_EXECUTION_BOUNDARY.md
+docs/DETERMINISTIC_EXECUTION_POLICY.json
+docs/RECOVERY_PROTOCOL.md
+docs/OLLARMA_SUBSTRATE_CONTRACT.md
+docs/publication/TERMINOLOGY_EQUIVALENCE.md
+docs/public-release/LICENSING_TIERS.md
+LICENSE-ACADEMIC-ADDENDUM.md
+LICENSE-COMMERCIAL.md
+
+# --- tests (substrate coverage; private-named test files are excluded by denylist report) ---
+tests/test_routing_ladder.py
+tests/test_scorers.py
+tests/test_registry.py
+tests/test_guardrail.py
+tests/test_antibody_model_policy.py
+tests/test_antibody_profile.py
+tests/test_recovery_packet.py
+tests/test_idempotency.py
+tests/test_embeddings.py

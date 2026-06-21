@@ -1,0 +1,29 @@
+schema_version: 1
+project_name: ollarma-demo
+project_root: <repo>/demo/hackathon/demo_project
+project_type: local demo project for bounded helper and execution verification
+namespace_prefix: "ollarma-demo:"
+has_canon: true
+tools: []
+antibodies: []
+knowledge_base:
+  artifact_root: .ollarma/kb
+  freshness_hours: 24
+  stale_behavior: block
+  sources:
+    - path: README.md
+      kind: documents
+      authority: canonical
+      recursive: false
+    - path: scripts
+      kind: workflow
+      authority: canonical
+      recursive: true
+      include:
+        - "*.py"
+    - path: .ollarma/manifests
+      kind: workflow
+      authority: canonical
+      recursive: true
+      include:
+        - "*.json"

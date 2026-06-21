@@ -1,0 +1,58 @@
+# local-model-bench: model declarations
+# Add a new model by appending a "- name: <ollama-tag>" entry.
+# No code changes required. model_digest is fetched at runtime via "ollama show <name> --verbose".
+#
+# NOTE: This is the BENCHMARK CANDIDATE ROSTER, not a runtime requirement. A model
+# listed here does NOT have to be pulled in ollama — the routing ladder only binds
+# models that are actually present (resident-first), and always keeps the smallest
+# pulled model as the rescue rung.
+#
+# Updated 2026-05-31 (quick 260530-uf2): refreshed to current May-2026 families and
+# re-tiered for this host — Mac Studio **M1 Max 32 GB** (NOT the old M1 Pro 16 GB), so
+# the 24–31B tier now fits. Ollama 0.24 has the MLX backend; prefer `-mlx` tags for the
+# resident workhorse on Apple Silicon. Tags verified live against ollama.com/library on
+# 2026-05-30. Pulled this cycle: qwen3.5:{2b,4b,9b}, granite4.1:8b, phi4-reasoning:14b
+# (+ larger: gemma4:26b, qwen3.6:27b, mistral-small3.2:24b, qwen3-coder:30b, qwen3.5:9b-mlx).
+# Roster research + rationale: ~/projects/MODEL_ROSTER_2026-05.md.
+models:
+  # --- primary tier (~8-9B) ---
+  - name: qwen3.5:9b
+    description: "Qwen3.5 9B — primary tier science/code (256K ctx, multimodal)"
+  - name: granite4.1:8b
+    description: "IBM Granite 4.1 8B — tool-calling specialist (128K ctx)"
+  - name: qwen2.5-coder:7b
+    description: "Qwen2.5-Coder 7B — code generation (kept; proven)"
+  # --- orchestrator tier (~3-4B) ---
+  - name: qwen3.5:4b
+    description: "Qwen3.5 4B — orchestrator tier"
+  - name: granite4.1:3b
+    description: "Granite 4.1 3B — light tool-calling orchestrator"
+  - name: gemma4:e4b
+    description: "Gemma 4 E4B — multimodal helper (MoE, effective 4B)"
+  - name: phi4-mini
+    description: "Phi-4 Mini 3.8B — orchestrator tier (kept)"
+  # --- tiny / rescue rung (~1-2B) ---
+  - name: qwen3.5:2b
+    description: "Qwen3.5 2B — tiny/rescue rung"
+  - name: qwen2.5:1.5b
+    description: "Qwen2.5 1.5B — pinned always-available bridge model (keep_alive=-1)"
+  # --- reasoning tier (~14B) ---
+  - name: phi4-reasoning:14b
+    description: "Phi-4-reasoning 14B — reasoning/math specialist"
+  - name: deepseek-r1:14b
+    description: "DeepSeek-R1 14B — chain-of-thought reasoning (kept)"
+  # --- large tier (fits 32 GB; optional/heavier) ---
+  - name: qwen3-coder:30b
+    description: "Qwen3-Coder 30B — agentic code (large)"
+  - name: gemma4:26b
+    description: "Gemma 4 26B — multimodal MoE, 3.8B active (large)"
+  - name: qwen3.6:27b
+    description: "Qwen3.6 27B — newest Qwen, agentic coding + thinking (large)"
+  - name: mistral-small3.2:24b
+    description: "Mistral Small 3.2 24B — general 24B tier (large)"
+  # --- Apple-Silicon speed variant ---
+  - name: qwen3.5:9b-mlx
+    description: "Qwen3.5 9B (MLX) — faster decode on Apple Silicon"
+  # --- embeddings ---
+  - name: nomic-embed-text
+    description: "Embeddings — pinned keep_alive=-1 by Ollarma (RTB-REQ-25); /embed surface"

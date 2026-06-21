@@ -1,0 +1,23 @@
+# gitleaks config for ollarma — release gate.
+#
+# Extends the default ruleset and allowlists confirmed false positives so a
+# clean `gitleaks git .` / `gitleaks dir .` is a meaningful release signal.
+# Reviewed 2026-06-20: the only findings were test fixtures and a local-provider
+# placeholder — no real secret has ever been committed.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Confirmed false positives (reviewed 2026-06-20)"
+paths = [
+  # Redaction unit test: deliberately embeds a fake `token=abcdefgh12345678`
+  # and asserts it gets redacted. Not a real secret.
+  '''tests/test_conversation_provenance\.py''',
+]
+regexes = [
+  # Local Ollama provider placeholder: api_key='ollama' is the literal sentinel
+  # the OpenAI-compatible client requires; it is not a credential.
+  '''api_key=['"]ollama['"]''',
+  # Fake token fixture string used across redaction tests.
+  '''token=abcdefgh12345678''',
+]

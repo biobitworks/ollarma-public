@@ -1,0 +1,68 @@
+format-version: 1.2
+ontology: go-mini-fixture
+
+[Term]
+id: GO:0008150
+name: biological_process
+namespace: biological_process
+
+[Term]
+id: GO:0003674
+name: molecular_function
+namespace: molecular_function
+
+[Term]
+id: GO:0005575
+name: cellular_component
+namespace: cellular_component
+
+[Term]
+id: GO:0009987
+name: cellular process
+namespace: biological_process
+is_a: GO:0008150 ! biological_process
+
+[Term]
+id: GO:0008152
+name: metabolic process
+namespace: biological_process
+is_a: GO:0008150 ! biological_process
+
+[Term]
+id: GO:0044237
+name: cellular metabolic process
+namespace: biological_process
+is_a: GO:0009987 ! cellular process
+is_a: GO:0008152 ! metabolic process
+
+[Term]
+id: GO:0005488
+name: binding
+namespace: molecular_function
+is_a: GO:0003674 ! molecular_function
+
+[Term]
+id: GO:0005634
+name: nucleus
+namespace: cellular_component
+is_a: GO:0005575 ! cellular_component
+
+[Term]
+id: GO:0070013
+name: intracellular organelle lumen
+namespace: cellular_component
+is_a: GO:0005575 ! cellular_component
+relationship: part_of GO:0005634 ! nucleus
+
+[Term]
+id: GO:0099999
+name: term with alt id
+namespace: molecular_function
+is_a: GO:0003674 ! molecular_function
+alt_id: GO:0088888
+
+[Term]
+id: GO:0000001
+name: obsolete example
+namespace: biological_process
+is_obsolete: true

@@ -1,0 +1,58 @@
+# Benchmark results — local only, not committed
+results/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# pytest cache
+.pytest_cache/
+
+# antigence runtime memory cache — local-only generated classification store,
+# same rationale as .ollarma/ below (runtime state, not a source artifact).
+.antigence/
+
+# ollarma runtime state directory (v4.4: entire .ollarma/ is local-only).
+# Covers recovery runtime (.ollarma/incidents/, .ollarma/recovery_block_receipts.jsonl),
+# scribe artifacts (.ollarma/RESUME.md, .ollarma/session-log.jsonl),
+# governance payloads (.ollarma/governance/), agent receipts
+# (.ollarma/agent_receipts.json), workflow manifests (.ollarma/manifests/),
+# KB artifacts (.ollarma/kb/), and scheduler state
+# ($OLLARMA_SCHEDULER_DIR default = tempdir, but .ollarma/ may be used).
+# Rationale: forward-safe -- new runtime files under .ollarma/ are ignored
+# by default. Nothing under .ollarma/ was tracked pre-v4.4 (confirmed via
+# `git ls-files .ollarma/` at v4.4 Phase 49 audit).
+.ollarma/
+
+# gsigmad / Getting Science Done skills are symlinked from the source repo
+# at <repo>/skills/. They live in
+# .claude/skills/ and .agents/skills/ as local-only convenience links so
+# Ollarma agents (and any Claude/Codex run scoped to this repo) can discover
+# them at runtime. Ignored from version control because:
+#   1. Symlink targets are absolute paths tied to a specific machine layout.
+#   2. The canonical copies live in the gettingsciencedone repo.
+#   3. Edits to source flow live; nothing to commit here.
+.claude/skills/gsigmad
+.claude/skills/gsigmad-*
+.agents/skills/gsigmad
+.agents/skills/gsigmad-*
+
+# gsigmad runtime degradation flag — per-run ops state, NOT source-controlled
+# evidence. The gsigmad CLI rewrites this on every invocation; a committed copy
+# goes stale (a frozen KG_DEGRADED was misread as a live KG outage when it was
+# really "this interpreter lacks the python-arango client"). Readers must probe
+# live, not trust a checked-in flag. The local file is preserved; only tracking
+# is removed.
+.gsigmad/degradation.json
+
+# CAFA ontology bulk — registered by sha256 in the manifest, not committed
+data/*.obo

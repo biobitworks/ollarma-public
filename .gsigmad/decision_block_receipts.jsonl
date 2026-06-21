@@ -1,0 +1,1 @@
+{"agent_id": "byron", "blocker_code": "BLOCKED:no_decision_packet", "entrypoint": "gsigmad-create-prompt", "next_fix_commands": ["/gsigmad-decision-packet create"], "packet_id": "unknown", "packet_path": "<repo>/.gsigmad/decision_packets/MISSING", "parent_receipt_sha": null, "schema_version": 1, "timestamp": "2026-05-31T21:05:34.231435+00:00", "verdict": "MISSING"}

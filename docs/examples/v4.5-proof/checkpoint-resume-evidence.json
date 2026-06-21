@@ -1,0 +1,69 @@
+{
+  "proof": "PROOF-02 checkpoint/resume cycle",
+  "description": "First workflow submission writes checkpoint. Process exits (SWAP_DEGRADED). Resume point resolves from checkpoint with no data loss.",
+  "phase54_run_date": "2026-04-19",
+  "step1_first_submission": {
+    "manifest_ref": ".ollarma/manifests/phase54-proof.json",
+    "step_id": "preflight-check",
+    "model": "qwen3:1.7b",
+    "outcome": "rejected (SWAP_DEGRADED)",
+    "checkpoint_written": true
+  },
+  "step2_checkpoint_state": {
+    "run_id": "phase54-proof-01",
+    "current_stage": "preflight",
+    "last_validated_stage": null,
+    "last_receipt_hash": "66bea6223b6dda1620a6728da8ed65e1651287faeacb25695d2d747c61097ca9",
+    "retry_budget_remaining": 1,
+    "resume_from_step": "preflight-check"
+  },
+  "step3_receipt_chain": [
+    {
+      "run_id": "phase54-proof-01",
+      "stage": "preflight",
+      "step_id": "preflight-check",
+      "task_or_command": "workflow-step:preflight-check",
+      "lane": "workflow_execution_queue",
+      "status": "rejected",
+      "inputs": [
+        {
+          "repo_relative": ".ollarma/manifests/phase54-proof.json",
+          "digest": "sha256:bb07fe9d4dc947db7a37d8c8e66ff6ff31ee8d2f53989d792847428b7ab15026"
+        }
+      ],
+      "outputs": [
+        {
+          "digest": "sha256:bb07fe9d4dc947db7a37d8c8e66ff6ff31ee8d2f53989d792847428b7ab15026"
+        }
+      ],
+      "duration_s": 0.0,
+      "retry_count": 0,
+      "reason_code": "SWAP_DEGRADED",
+      "namespace": "",
+      "checkpoint_ref": {
+        "repo_relative": ".ollarma/runs/phase54-proof/checkpoint.json"
+      },
+      "governance_refs": [],
+      "created_at": "2026-04-19T17:57:22Z",
+      "parent_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "receipt_hash": "66bea6223b6dda1620a6728da8ed65e1651287faeacb25695d2d747c61097ca9"
+    }
+  ],
+  "step4_resume_point": {
+    "run_id": "phase54-proof-01",
+    "next_stage": "preflight",
+    "resume_from_step": "preflight-check",
+    "checkpoint_ref": {
+      "repo_relative": ".ollarma/runs/phase54-proof/checkpoint.json"
+    },
+    "last_receipt_hash": "66bea6223b6dda1620a6728da8ed65e1651287faeacb25695d2d747c61097ca9",
+    "verification": "resolve_resume_point() confirmed checkpoint matches receipt tail hash"
+  },
+  "route_receipt_check": {
+    "frontier_or_human_non_blocked": false,
+    "all_lanes_local": true,
+    "lanes_observed": [
+      "workflow_execution_queue"
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+{"instance_id":"synthetic-pass-1","repo":"example/repo","base_commit":"0000000000000000000000000000000000000001","problem_statement":"Return 1.","test_patch":"","test_cmd":"python3 -c \"assert 1 == 1\""}
+{"instance_id":"synthetic-fail-2","repo":"example/repo","base_commit":"0000000000000000000000000000000000000002","problem_statement":"Return 2, but impl returns 1.","test_patch":"","test_cmd":"python3 -c \"assert 1 == 2\""}
+{"instance_id":"synthetic-timeout-3","repo":"example/repo","base_commit":"0000000000000000000000000000000000000003","problem_statement":"Loops forever.","test_patch":"","test_cmd":"python3 -c \"import time; time.sleep(999)\""}

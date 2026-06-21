@@ -1,0 +1,71 @@
+exp_id: EXP-1.2
+record_schema_version: 3
+title: ollarma v5.0 SWE-bench Lite cross-lane pass@1 measurement
+classification: CONFIRMATORY
+created_at: '2026-04-20T04:12:44.482966+00:00'
+author: ''
+hypothesis: &id001
+  h0: "The v5.0 substrate's local lane (via v4.5 autopilot on local Ollama models)\
+    \ and frontier lane (via gateway \u2192 Anthropic claude-haiku-4-5-latest) achieve\
+    \ EQUAL pass@1 scores on SWE-bench Lite subset \u2014 i.e., local lane is not\
+    \ measurably worse than frontier lane on bounded-complexity coding tasks"
+  h1: 'TODO: state alternative hypothesis'
+  test: 'TODO: specify statistical test'
+  alpha: 0.05
+  mesi: null
+power_analysis:
+  tier: TODO
+  test_type: TODO
+  required_n: null
+  effect_size_mesi: null
+  alpha: 0.05
+  achieved_power: null
+gates:
+  power_analysis: PENDING
+  decision_tree: PENDING
+  temporal_integrity: PENDING
+  red_team: PENDING
+  data_contract: PENDING
+claims: []
+replication_artifacts: []
+fdr_chain:
+  levels:
+  - name: primary
+    threshold: 0.05
+  method: none
+  tool: TODO
+  tool_version: TODO
+null_model:
+  strategy: TODO
+  n_permutations: null
+  baseline_description: 'TODO: describe the null baseline'
+  exchangeability_assumption: 'TODO: state what is exchangeable under null'
+  novel_space: false
+  justification: null
+  validation_evidence: null
+calibration_contract:
+  scored_fields: []
+  default_calibration:
+    calibrated: false
+    method: null
+    tool: null
+    tool_version: null
+    brier_score: null
+    ece_score: null
+    procedure_ref: null
+prompt_id: PROMPT-1.2
+task_id: TASK-1.2
+coordinate_version: v1.1.1.1
+status: planned
+prompt_artifact:
+  kind: experiment_registration
+  hash_standard: RFC8785
+  hash_algorithm: sha256
+  hash: fe5b80556928193c51be9e127033732d24b5548ff5e1695bd4cca80a5f9f1394
+  payload:
+    command: register
+    classification: CONFIRMATORY
+    title: ollarma v5.0 SWE-bench Lite cross-lane pass@1 measurement
+    hypothesis: *id001
+    prompt_id: PROMPT-1.2
+    task_id: TASK-1.2
